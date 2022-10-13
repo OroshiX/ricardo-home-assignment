@@ -1,12 +1,11 @@
 # ricardo-home-assignment
 
 ## What to do
-You are given a project that is lacks maintainability and is not really easy to test, it's up to you to change the code base so 
-that it's easier to test, to maintain and it's general nicer to work with.
+You are given a project that lacks maintainability and is not really easy to test, it's up to you to change the code base so that it's easier to test, to maintain and it's generally nicer to work with.
 
 The focus will be on the `ViewModel` and the `data` package. 
 
-You can use any testing library, framework etc you want in order to achieve your goal. We like to see what you know :). 
+You can use any testing library, framework etc you want in order to achieve your goal. We'd like to see what you know :). 
 
 ## Constraints
 ### Time

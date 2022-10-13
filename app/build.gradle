@@ -5,6 +5,7 @@ plugins {
 
 android {
     compileSdk 31
+    namespace 'ricardo.ch.login'
 
     defaultConfig {
         applicationId "ricardo.ch.login"
