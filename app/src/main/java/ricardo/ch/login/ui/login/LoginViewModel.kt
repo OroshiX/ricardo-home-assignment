@@ -13,8 +13,8 @@ import ricardo.ch.login.data.login.LoginInteractor
 import ricardo.ch.login.ui.login.LoginFormState.*
 
 class LoginViewModel(
-    private val dispatcher: CoroutineDispatcher = Dispatchers.Unconfined,
-    private val loginInteractor: LoginInteractor
+    private val loginInteractor: LoginInteractor,
+    private val dispatcher: CoroutineDispatcher = Dispatchers.Unconfined
 ) : ViewModel() {
 
     val loginForm = MutableStateFlow<LoginFormState>(Pristine)

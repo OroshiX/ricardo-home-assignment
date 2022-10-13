@@ -9,9 +9,9 @@ import java.util.*
 /**
  * Class that handles authentication w/ login credentials and retrieves user information.
  */
-class RemoteLoginDataSource {
+class RemoteLoginDataSource: LoginDataSource {
 
-    suspend fun login(username: String, password: String): Result<LoggedInUser> {
+    override suspend fun login(username: String, password: String): Result<LoggedInUser> {
         try {
             delay(1000L) //Simulate network request
             val fakeUser = LoggedInUser(UUID.randomUUID().toString(), "Jane Doe")
@@ -21,5 +21,5 @@ class RemoteLoginDataSource {
         }
     }
 
-    fun logout() = Unit
+    override fun logout() = Unit
 }

@@ -9,7 +9,7 @@ import ricardo.ch.login.data.login.model.LoggedInUser
  * maintains an in-memory cache of login status and user credentials information.
  */
 
-class LoginRepository {
+class LoginRepository(private val loginDataSource: LoginDataSource) {
 
     // in-memory cache of the loggedInUser object
     var user: LoggedInUser? = null
@@ -24,11 +24,11 @@ class LoginRepository {
 
     fun logout() {
         user = null
-        RemoteLoginDataSource().logout()
+        loginDataSource.logout()
     }
 
     fun login(username: String, password: String) = flow {
-        val result = RemoteLoginDataSource().login(username, password)
+        val result = loginDataSource.login(username, password)
 
         if (result is Result.Success) {
             setLoggedInUser(result.data)

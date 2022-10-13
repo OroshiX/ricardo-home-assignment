@@ -10,13 +10,13 @@ sealed interface LoginAction {
     data class LoginSuccessful(val username: String) : LoginAction
 }
 
-class LoginInteractor {
+class LoginInteractor(private val loginRepository: LoginRepository) {
 
     fun login(username: String, password: String) = flow {
         emit(LoginAction.StartLogin)
         if (username.contains("failed")) {
             emit(LoginAction.LoginFailed)
-        } else when (val result = LoginRepository().login(username, password).single()) {
+        } else when (val result = loginRepository.login(username, password).single()) {
             is Result.Success -> emit(LoginAction.LoginSuccessful(result.data.displayName))
             else -> emit(LoginAction.LoginFailed)
         }
