@@ -1,11 +1,12 @@
 package ricardo.ch.login.ui.login
 
-import android.util.Patterns
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import ricardo.ch.login.R
 import ricardo.ch.login.data.login.LoginAction
@@ -14,6 +15,7 @@ import ricardo.ch.login.ui.login.LoginFormState.*
 
 class LoginViewModel(
     private val loginInteractor: LoginInteractor,
+    private val validator: MailValidator = MailValidator(),
     private val dispatcher: CoroutineDispatcher = Dispatchers.Unconfined
 ) : ViewModel() {
 
@@ -49,7 +51,7 @@ class LoginViewModel(
 
     private fun isUserNameValid(username: String): Boolean {
         return if (username.contains('@')) {
-            Patterns.EMAIL_ADDRESS.matcher(username).matches()
+            validator.emailPattern().matcher(username).matches()
         } else {
             username.isNotBlank()
         }

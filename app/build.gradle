@@ -71,6 +71,13 @@ dependencies {
     // Assertions
     testImplementation "io.kotest:kotest-assertions-core:$kotest_version"
 
+    ///////////
+    // Mockk //
+    ///////////
+    def mockk_version = "1.13.1"
+    testImplementation "io.mockk:mockk:$mockk_version"
+    androidTestImplementation "io.mockk:mockk-android:$mockk_version"
+
     ///////////////
     // DI - Koin //
     ///////////////
