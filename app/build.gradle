@@ -52,9 +52,25 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.1"
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+    /////////////
+    // Testing //
+    /////////////
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4'
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    ////////////
+    // Kotest //
+    ////////////
+    def kotest_version = "5.4.0"
+//    testImplementation 'io.kotest:kotest-runner-junit5:5.2'
+    // Property testing
+    testImplementation "io.kotest:kotest-property:$kotest_version"
+    // Assertions
+    testImplementation "io.kotest:kotest-assertions-core:$kotest_version"
+
     ///////////////
     // DI - Koin //
     ///////////////
@@ -71,5 +87,6 @@ dependencies {
     implementation "io.insert-koin:koin-android:$koin_android_version"
     implementation "io.insert-koin:koin-annotations:$koin_ksp_version"
     ksp "io.insert-koin:koin-ksp-compiler:$koin_ksp_version"
+
 
 }
